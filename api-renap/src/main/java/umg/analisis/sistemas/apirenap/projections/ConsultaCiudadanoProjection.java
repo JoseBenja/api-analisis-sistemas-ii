@@ -8,6 +8,9 @@ public interface ConsultaCiudadanoProjection {
     String getNacionalidad();
     String getFechaNacimiento();
     String getDireccionCompleta();
-
+    String getEtnia();
+    Boolean getAnalfabeta();
+    String getIdioma();
+    String getDiscapacidad();
 
 }

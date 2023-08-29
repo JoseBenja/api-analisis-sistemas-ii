@@ -60,4 +60,16 @@ public class Ciudadano implements Serializable {
     @Column(name = "fallecido")
     private Boolean fallecido;
 
+    @Column(name = "etnia", length = 20)
+    private String etnia;
+
+    @Column(name = "analfabeta")
+    private Boolean analfabeta;
+
+    @Column(name = "idioma", length = 30)
+    private String idioma;
+
+    @Column(name = "discapacidad", length = 100)
+    private String discapacidad;
+
 }

@@ -8,5 +8,4 @@ public interface DatosVotante {
 
     String getDireccionCompleta();
 
-    Boolean getVotoEmitido();
 }

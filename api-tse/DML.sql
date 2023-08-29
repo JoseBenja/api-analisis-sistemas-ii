@@ -492,5 +492,6 @@ INSERT INTO tse.catalogo (tipo,estado,codigo,nombre,referencia_id_catag) VALUES
                                                                              ('municipio',true,'17','Quesada',112);
 
 ----DML Votante
-INSERT INTO tse.votante (cui,municipio,direccion,voto_emitido) VALUES
-    ('2700106070101',122,'Manzada D. Lote 31, Ciudad Jardin Lantana',false);
+INSERT INTO tse.votante (cui,municipio,direccion) VALUES
+    ('2700106070101',122,'Manzada D. Lote 31, Ciudad Jardin Lantana'),
+    ('2800106070101',122,'Loma Alta')

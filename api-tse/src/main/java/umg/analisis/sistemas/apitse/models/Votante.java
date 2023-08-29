@@ -26,8 +26,4 @@ public class Votante {
     @Column(name = "direccion", length = 100)
     private String direccion;
 
-    @Column(name = "voto_emitido")
-    private Boolean votoEmitido;
-
-
 }

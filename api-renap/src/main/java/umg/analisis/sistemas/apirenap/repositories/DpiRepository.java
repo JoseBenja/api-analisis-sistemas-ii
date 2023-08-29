@@ -14,7 +14,11 @@ public interface DpiRepository extends CrudRepository<Dpi, Object> {
             "c.sexo as sexo, " +
             "c.nacionalidad as nacionalidad, " +
             "c.fecha_nacimiento as fechaNacimiento, " +
-            "c.direccion || ', ' || c2.nombre || ', ' || c3.nombre || ', ' || c4.nombre as direccionCompleta " +
+            "c.direccion || ', ' || c2.nombre || ', ' || c3.nombre || ', ' || c4.nombre as direccionCompleta," +
+            "c.etnia as etnia, " +
+            "c.analfabeta as analfabeta, " +
+            "c.idioma as idioma, " +
+            "c.discapacidad as discapacidas " +
             "FROM renap.ciudadano c " +
             "INNER JOIN renap.dpi d ON c.cui = d.cui " +
             "INNER JOIN renap.catalogo c2 ON c.municipio = c2.id_catag " +
@@ -34,7 +38,11 @@ public interface DpiRepository extends CrudRepository<Dpi, Object> {
             "c.sexo as sexo, " +
             "c.nacionalidad as nacionalidad, " +
             "c.fecha_nacimiento as fechaNacimiento, " +
-            "c.direccion || ', ' || c2.nombre || ', ' || c3.nombre || ', ' || c4.nombre as direccionCompleta " +
+            "c.direccion || ', ' || c2.nombre || ', ' || c3.nombre || ', ' || c4.nombre as direccionCompleta," +
+            "c.etnia as etnia, " +
+            "c.analfabeta as analfabeta, " +
+            "c.idioma as idioma, " +
+            "c.discapacidad as discapacidas " +
             "FROM renap.ciudadano c " +
             "INNER JOIN renap.dpi d ON c.cui = d.cui " +
             "INNER JOIN renap.catalogo c2 ON c.municipio = c2.id_catag " +
@@ -54,7 +62,11 @@ public interface DpiRepository extends CrudRepository<Dpi, Object> {
             "c.sexo as sexo, " +
             "c.nacionalidad as nacionalidad, " +
             "c.fecha_nacimiento as fechaNacimiento, " +
-            "c.direccion || ', ' || c2.nombre || ', ' || c3.nombre || ', ' || c4.nombre as direccionCompleta " +
+            "c.direccion || ', ' || c2.nombre || ', ' || c3.nombre || ', ' || c4.nombre as direccionCompleta," +
+            "c.etnia as etnia, " +
+            "c.analfabeta as analfabeta, " +
+            "c.idioma as idioma, " +
+            "c.discapacidad as discapacidas " +
             "FROM renap.ciudadano c " +
             "INNER JOIN renap.dpi d ON c.cui = d.cui " +
             "INNER JOIN renap.catalogo c2 ON c.municipio = c2.id_catag " +
@@ -74,7 +86,11 @@ public interface DpiRepository extends CrudRepository<Dpi, Object> {
             "c.sexo as sexo, " +
             "c.nacionalidad as nacionalidad, " +
             "c.fecha_nacimiento as fechaNacimiento, " +
-            "c.direccion || ', ' || c2.nombre || ', ' || c3.nombre || ', ' || c4.nombre as direccionCompleta " +
+            "c.direccion || ', ' || c2.nombre || ', ' || c3.nombre || ', ' || c4.nombre as direccionCompleta," +
+            "c.etnia as etnia, " +
+            "c.analfabeta as analfabeta, " +
+            "c.idioma as idioma, " +
+            "c.discapacidad as discapacidas " +
             "FROM renap.ciudadano c " +
             "INNER JOIN renap.dpi d ON c.cui = d.cui " +
             "INNER JOIN renap.catalogo c2 ON c.municipio = c2.id_catag " +

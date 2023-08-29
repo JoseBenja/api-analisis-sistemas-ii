@@ -1,21 +1,25 @@
 CREATE SCHEMA renap AUTHORIZATION postgres;
 
 CREATE TABLE renap.ciudadano (
-                                 cui varchar(13) NOT NULL,
-                                 primer_nombre varchar(25) NOT NULL,
-                                 segundo_nombre varchar(25) NULL,
-                                 primer_apellido varchar(25) NOT NULL,
-                                 segundo_apellido varchar(25) NOT NULL,
-                                 apellido_casada varchar(25) NULL,
-                                 sexo varchar(1) NOT NULL,
-                                 nacionalidad varchar(30) NOT NULL,
-                                 pais_nacimiento int4 NOT NULL,
-                                 fecha_nacimiento date NOT NULL,
-                                 estado_civil varchar(5) NOT NULL,
-                                 municipio int4 NOT NULL,
-                                 direccion varchar(300) NOT NULL,
-                                 fallecido bool NOT NULL DEFAULT false,
-                                 CONSTRAINT ciudadano_pkey PRIMARY KEY (cui)
+	cui varchar(13) NOT NULL,
+	primer_nombre varchar(25) NOT NULL,
+	segundo_nombre varchar(25) NULL,
+	primer_apellido varchar(25) NOT NULL,
+	segundo_apellido varchar(25) NOT NULL,
+	apellido_casada varchar(25) NULL,
+	sexo varchar(1) NOT NULL,
+	nacionalidad varchar(30) NOT NULL,
+	pais_nacimiento int4 NOT NULL,
+	fecha_nacimiento date NOT NULL,
+	estado_civil varchar(5) NOT NULL,
+	municipio int4 NOT NULL,
+	direccion varchar(300) NOT NULL,
+	fallecido bool NOT NULL DEFAULT false,
+	etnia varchar(20) NOT NULL,
+	analfabeta bool NOT NULL,
+	idioma varchar(30) NOT NULL,
+	discapacidad varchar(100) NULL,
+	CONSTRAINT ciudadano_pkey PRIMARY KEY (cui)
 );
 
 

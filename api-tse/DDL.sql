@@ -14,7 +14,6 @@ CREATE TABLE tse.votante (
                              cui varchar(13) NOT NULL,
                              municipio int4 NOT NULL,
                              direccion varchar(100) NOT NULL,
-                             voto_emitido bool NOT NULL DEFAULT false,
                              CONSTRAINT votante_pkey PRIMARY KEY (no_empadronado)
 );
 
