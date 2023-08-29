@@ -1,0 +1,69 @@
+<mat-stepper linear #stepper>
+  <mat-step >
+
+      <ng-template matStepLabel>Presidenciables</ng-template>
+
+      <div class="candidatos--grid">
+        <div *ngFor="let candidato of candidatos; let i = index"  class="candidato-item ">
+          <div (click)="seleccionarCandidato(i)">
+          <app-presidenciable
+            [candidato]="candidato"
+
+          ></app-presidenciable>
+        </div>
+      </div>
+      </div>
+
+
+
+      <br>
+      <div class="step-button-container">
+        <button mat-button matStepperNext>Next</button>
+      </div>
+
+  </mat-step>
+
+  <mat-step  >
+
+      <ng-template matStepLabel>Alcaldes</ng-template>
+      <app-alcalde></app-alcalde>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+
+  </mat-step>
+
+  <mat-step  >
+
+    <ng-template matStepLabel>Diputados Lista Nacional</ng-template>
+    <app-diputado-lista-nacional></app-diputado-lista-nacional>
+
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext>Next</button>
+    </div>
+
+</mat-step>
+
+<mat-step  >
+
+  <ng-template matStepLabel>Diputados Distrito Electoral</ng-template>
+  <app-diputado-distrito-electoral></app-diputado-distrito-electoral>
+
+  <div>
+    <button mat-button matStepperPrevious>Back</button>
+    <button mat-button matStepperNext>Next</button>
+  </div>
+
+</mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Diputados al Parlacen</ng-template>
+    <app-diputado-parlacen></app-diputado-parlacen>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>

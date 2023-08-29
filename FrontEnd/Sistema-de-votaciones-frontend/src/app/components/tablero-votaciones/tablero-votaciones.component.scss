@@ -1,0 +1,42 @@
+.tablero--grid{
+  display: flex;
+  flex-direction: column;
+}
+
+
+  .candidato-item {
+    background-color:rgb(226, 236, 236);
+    border-radius: 10px;
+    margin: 5px;
+    width: 400px; /* Ajusta el valor según lo que necesites */
+    height: 400px; /* Ajusta el valor según lo que necesites */
+  }
+
+  .step-button-container {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: left;
+    margin-top: 10px;
+  }
+
+  //tablets
+@media screen and (min-width: 40em) and (max-width: 63.9em) {
+  .candidatos--grid{
+    display: grid ;
+    grid-template-columns: repeat(1, 1fr);
+    grid: gap 15px;
+  }
+}
+
+//web
+@media screen and (min-width: 64em){
+  .candidatos--grid{
+    position: relative;
+    display: grid ;
+    grid-template-columns: repeat(3, 1fr);
+    grid: gap 15px;
+  }
+
+}
