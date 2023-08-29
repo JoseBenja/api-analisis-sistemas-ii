@@ -1,31 +1,22 @@
 package umg.analisis.sistemas.apitse.controllers;
 
 import io.swagger.annotations.Api;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import umg.analisis.sistemas.sistemavotaciones.commons.CommonController;
-import umg.analisis.sistemas.sistemavotaciones.dtos.VotanteDto;
-import umg.analisis.sistemas.sistemavotaciones.models.Votante;
-import umg.analisis.sistemas.sistemavotaciones.projections.CaracteristicasVotanteProjection;
-import umg.analisis.sistemas.sistemavotaciones.services.VotanteSvc;
+import umg.analisis.sistemas.apitse.commons.CommonController;
+import umg.analisis.sistemas.apitse.models.Votante;
+import umg.analisis.sistemas.apitse.projections.DatosVotante;
+import umg.analisis.sistemas.apitse.services.VotanteSvc;
 
 @Api
 @RestController
-@RequestMapping("/prueba")
+@RequestMapping("/votante")
 public class VotanteController extends CommonController<Votante, VotanteSvc> {
 
-    @Autowired
-    VotanteSvc votanteSvc;
-
-    @GetMapping("/probar-servicio")
-    public ResponseEntity<String> probarServicio() {
-        return ResponseEntity.ok("Hola Mundo!!");
+    @GetMapping("/empadronado/{cui}")
+    @ApiOperation("Encontrar votante empradonado por el CUI")
+    public ResponseEntity<DatosVotante> findVotanteByCui(@PathVariable String cui) {
+        return ResponseEntity.ok(this.service.findVotanteByCui(cui));
     }
-
-    @PostMapping("/obtener-caracteristicas-votante")
-    public ResponseEntity<CaracteristicasVotanteProjection> getCaracteristicasVotante(@RequestBody VotanteDto votanteDto) {
-        return ResponseEntity.ok(votanteSvc.getCaracteristicasVotante(votanteDto));
-    }
-
 }

@@ -4,48 +4,30 @@ package umg.analisis.sistemas.apitse.models;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "votante", schema = "sistema_votaciones")
+@Table(name = "votante", schema = "tse")
 public class Votante {
 
     @Id
-    @Column(name = "dpi", length = 13)
-    private String dpi;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "no_empadronado")
+    private Integer noEmpadronado;
 
-    @Column(name = "no_empradronamiento", length = 50)
-    private String noEmpradonado;
+    @Column(name = "cui", length = 13)
+    private String cui;
 
-    @Column(name = "domicilio", length = 200)
-    private String domicilio;
+    @Column(name = "municipio")
+    private Integer municipio;
 
-    @Column(name = "estado_votacion")
-    private Boolean estadoVotacion;
+    @Column(name = "direccion", length = 100)
+    private String direccion;
 
-    @Column(name = "etnia", length = 30)
-    private String etnia;
+    @Column(name = "voto_emitido")
+    private Boolean votoEmitido;
 
-    @Column(name = "analfabeta")
-    private Boolean analfabeta;
 
-    @Column(name = "discapacidad", length = 100)
-    private String discapacidad;
-
-    @Column(name = "estado_votante")
-    private Boolean estadoVotante;
-
-    @Column(name = "nombre", length = 50)
-    private String nombre;
-
-    @Column(name = "apellido", length = 50)
-    private String apellido;
-
-    @Column(name = "sexo", length = 1)
-    private String sexo;
 }
