@@ -985,6 +985,17 @@ INSERT INTO renap.catalogo (tipo,estado,codigo,nombre,referencia_id_catag) VALUE
                                                                                ('municipio',true,'16','San José Acatempa',112),
                                                                                ('municipio',true,'17','Quesada',112);
 
+
+---DML CIUDADANO
+INSERT INTO renap.ciudadano (cui,primer_nombre,segundo_nombre,primer_apellido,segundo_apellido,apellido_casada,sexo,nacionalidad,pais_nacimiento,fecha_nacimiento,estado_civil,municipio,direccion,fallecido) VALUES
+            ('2700106070101','Jose','Benjamin','Mendez','Salguero',NULL,'M','Guatemalteca',5,'2002-05-07','S',122,'Manzada D. Lote 31, Ciudad Jardin Lantana',false),
+            ('2800106070101','Marco','Vinicio','Rac','Cotzojay',NULL,'M','Guatemalteca',5,'2000-03-04','S',122,'El Cerro de maco, de loma alta',false),
+            ('3000106070101','Angel','Jeronimo','Quiej','Chacach',NULL,'M','Guatemalteca',5,'1993-12-25','S',122,'Sajcavilla',false),
+            ('3100106070101','Eli',NULL,'Concoha','Sequen',NULL,'M','Guatemalteca',5,'2003-06-24','S',122,'Calle del Cementerio General',false),
+            ('3200106070101','Krista',NULL,'Colon','Salguero',NULL,'F','Guatemalteca',5,'2002-08-24','S',120,'San Cristobal',false),
+            ('3300106070101','Karla',NULL,'Marroquin','Perez','De Cortez','F','Guatemalteca',5,'1990-06-24','C',130,'En su casa',false),
+            ('2900106070101','Madelline','Yocary','Coronado','Duarte','De Melendez','F','Guatemalteca',5,'2001-08-15','C',182,'Encima de la mantarraya',false);
+
 -----DML DPI
 INSERT INTO renap.dpi (cui,version_dpi,fecha_emision,activo) VALUES
                                                                  ('2700106070101',1,'2020-11-20',true),
