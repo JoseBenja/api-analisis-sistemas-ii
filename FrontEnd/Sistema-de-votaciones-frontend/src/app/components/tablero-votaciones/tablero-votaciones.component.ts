@@ -1,15 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import {FormBuilder, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AlmacenamientoTempService } from 'src/app/services/almacenamiento-temp.service';
 import { CandidatosService } from 'src/app/services/candidatos.service';
+import { VotacionesService } from 'src/app/services/votaciones.service';
+import Swal from 'sweetalert2';
 
-interface Candidato {
-  id: number;
-  nombre_vice: string;
-  imagen_url: string;
-  nombre_pres: string;
-  partido_politico: string;
-  tipo_candidato: string;
-}
 @Component({
   selector: 'app-tablero-votaciones',
   templateUrl: './tablero-votaciones.component.html',
@@ -18,58 +13,87 @@ interface Candidato {
 export class TableroVotacionesComponent {
   @Output() candidatoSeleccionado = new EventEmitter();
 
+  constructor(private _formBuilder: FormBuilder, private candidatosService: CandidatosService, private tempService: AlmacenamientoTempService,
+              private votacionService: VotacionesService) {}
 
-  candidatos: Candidato[] = [
-   /* {
-      nombre: 'Bernardo Arevalo',
-      partido: 'Semilla',
-      edad: 45,
-      propuestas: ['Educación gratuita', 'Salud para todos'],
-      img: 'https://firebasestorage.googleapis.com/v0/b/analisis-ii.appspot.com/o/Semilla_Party.png?alt=media&token=43f1398e-88bc-45c7-9714-e02468f434e4'
-    },
-    {
-      nombre: 'Sandra Torres',
-      partido: 'UNE',
-      edad: 50,
-      propuestas: ['Empleo juvenil', 'Mejora de infraestructura'],
-      img: 'https://firebasestorage.googleapis.com/v0/b/analisis-ii.appspot.com/o/une.png?alt=media&token=0a51e65c-3240-4606-8681-e43b675fd1a7'
-    },
-    {
-      nombre: 'El Chenco',
-      partido: 'VAMOS',
-      edad: 38,
-      propuestas: ['Combate a la corrupción', 'Seguridad ciudadana'],
-      img: 'https://firebasestorage.googleapis.com/v0/b/analisis-ii.appspot.com/o/vamos.png?alt=media&token=9e49446a-86c9-4a8a-a840-71df334ea58a'
-    },
-    {
-      nombre: 'Candidato de Valor xD',
-      partido: 'VALOR',
-      edad: 38,
-      propuestas: ['Combate a la corrupción', 'Seguridad ciudadana'],
-      img: 'https://firebasestorage.googleapis.com/v0/b/analisis-ii.appspot.com/o/Valor_Logo.png?alt=media&token=c9069560-1aa8-4169-913f-2c7979e10dc0'
-    },
-    {
-      nombre: 'CANDIDATO DE UNIONISTA',
-      partido: 'UNIONISTA',
-      edad: 38,
-      propuestas: ['Combate a la corrupción', 'Seguridad ciudadana'],
-      img: 'https://firebasestorage.googleapis.com/v0/b/analisis-ii.appspot.com/o/Partido_Unionista_Logo_(Guatemala%2C_2016).svg%20(1).png?alt=media&token=dc3754eb-b56d-4105-a6e0-9003ce767ca1'
-    },
-    {
-      nombre: 'Candidato de TODOS',
-      partido: 'TODOS',
-      edad: 38,
-      propuestas: ['Combate a la corrupción', 'Seguridad ciudadana'],
-      img: 'https://firebasestorage.googleapis.com/v0/b/analisis-ii.appspot.com/o/640px-Partidopoliticotodos.jpg?alt=media&token=311aa6ca-0151-4051-a439-8b891d7889a9'
-    }
-   */
-  ];
+  get presidentes () {
+    return this.tempService.presidentes;
+  }
+
+  set presidentes (value) {
+    this.tempService.presidentes = value;
+  }
+
+  get ultimosCandidatosSeleccionados () {
+    return this.tempService.ultimosCandidatosSeleccionados;
+  }
+
+  set ultimosCandidatosSeleccionados (value) {
+    this.tempService.ultimosCandidatosSeleccionados = value;
+  }
+
+  get alcaldes () {
+    return this.tempService.alcaldes;
+  }
+
+  set alcaldes (value) {
+    this.tempService.alcaldes = value;
+  }
+
+  get diputadosNacional () {
+    return this.tempService.diputadosNacional;
+  }
+
+  set diputadosNacional (value) {
+    this.tempService.diputadosNacional = value;
+  }
+
+  get diputadoDistrito () {
+    return this.tempService.diputadoDistrito;
+  }
+
+  set diputadoDistrito (value) {
+    this.tempService.diputadoDistrito = value;
+  }
+
+  get diputadoParlacen () {
+    return this.tempService.diputadoParlacen;
+  }
+
+  set diputadoParlacen (value) {
+    this.tempService.diputadoParlacen = value;
+  }
+
+  get candidatosVotacion () {
+    return this.tempService.candidatosVotacion;
+  }
+
+  set candidatosVotacion (value) {
+    this.tempService.candidatosVotacion = value;
+  }
 
 
+
+ // ultimosCandidatosSeleccionados: { [tipo: string]: Candidato } = {};
 
   seleccionarCandidato(index: number) {
-    this.candidatoSeleccionado.emit(this.candidatos[index]);
-    console.log(this.candidatos[index]);
+    this.tempService.seleccionarPresidente(index);
+  }
+
+  seleccionarAlcalde(index: number) {
+    this.tempService.seleccionarAlcalde(index);
+  }
+
+  seleccionarDiputadoNacional(index: number){
+    this.tempService.seleccionarDiputadoNacional(index);
+  }
+
+  seleccionarDiputadoDistrito(index: number){
+    this.tempService.seleccionarDiputadoDistrito(index);
+  }
+
+  seleccionarDiputadoParlacen(index: number){
+    this.tempService.seleccionarDiputadoParlacen(index);
   }
 
   firstFormGroup = this._formBuilder.group({
@@ -80,16 +104,76 @@ export class TableroVotacionesComponent {
   });
   isEditable = false;
 
-  constructor(private _formBuilder: FormBuilder, private candidatosService: CandidatosService) {}
+
+
+
 
   ngOnInit(): void {
     this.getPresidenciables();
+    this.getAlcaldes();
+    this.getDiputadosNacional();
+    this.getDiputadosDistrito();
+    this.getDiputadosParlacen();
+  }
+
+  guardarVotacion(){
+    this.tempService.getUltimosCandidatosSeleccionados();
+    Swal.fire({
+      title: '¿Desea Realizar la Votacion?',
+      text: 'Esta accion no se puede deshacer',
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonText: 'Crear',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.votacionService.guardarVotacion(this.tempService.candidatosVotacion).subscribe((data: any) => {
+            Swal.fire('Votacion Realizada Con Exito.', '', 'success');
+          },
+          (error: any) => {
+            Swal.fire('Error', 'Error al crear la solicitud', 'error');
+          }
+        );
+      }
+    });
   }
 
   getPresidenciables(){
-    return this.candidatosService.getPresidenciables().subscribe(data=>{
-      this.candidatos = data;
+    return this.candidatosService.getCandidatos('PRESIDENTE').subscribe(data=>{
+      this.presidentes = data;
       console.log(data);
     });
   }
+
+  getAlcaldes(){
+    return this.candidatosService.getCandidatos('ALCALDE').subscribe(data=>{
+      this.alcaldes = data;
+      console.log(data);
+    });
+  }
+
+  getDiputadosNacional(){
+    return this.candidatosService.getCandidatos('DIPUTADO_NACIONAL').subscribe(data=>{
+      this.diputadosNacional = data;
+      console.log(data);
+    });
+  }
+
+  getDiputadosDistrito(){
+    return this.candidatosService.getCandidatos('DIPUTADO_DISTRITO').subscribe(data=>{
+      this.diputadoDistrito = data;
+      console.log(data);
+    });
+  }
+
+
+  getDiputadosParlacen(){
+    return this.candidatosService.getCandidatos('DIPUTADO_PARLACEN').subscribe(data=>{
+      this.diputadoParlacen = data;
+      console.log(data);
+    });
+  }
+
+
+
 }

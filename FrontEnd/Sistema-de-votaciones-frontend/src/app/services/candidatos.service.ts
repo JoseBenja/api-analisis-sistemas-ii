@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,10 +12,11 @@ export class CandidatosService {
 
   constructor(private http: HttpClient) { }
 
-  getPresidenciables():Observable<any> {
-    const tipoCandidato = 'PRESIDENTE';
+  getCandidatos(tipoCandidato: string):Observable<any> {
     return this.http.get<any>(`${this.API_URL}/por-tipo/${tipoCandidato}`);
     ///por-tipo/PRESIDENTE
   }
+
+
 
 }

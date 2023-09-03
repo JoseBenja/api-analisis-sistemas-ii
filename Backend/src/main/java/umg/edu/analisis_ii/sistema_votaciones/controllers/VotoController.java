@@ -24,8 +24,10 @@ public class VotoController {
         return votoService.getVotoById(id);
     }
 
-    @PostMapping
+    @PostMapping("/emitirVotacion")
     public Voto saveVoto(@RequestBody Voto voto) {
+        System.out.println(" ," + voto.getCui_votante()+ " ,"+ voto.getPresidente_id()+ " ,"+ voto.getAlcalde_id()+ voto.getDiputado_lista_id());
+
         return votoService.saveVoto(voto);
     }
 

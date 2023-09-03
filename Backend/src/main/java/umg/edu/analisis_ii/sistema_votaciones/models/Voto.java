@@ -7,6 +7,8 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.Date;
+
 /**
  * @author mvracot
  * */
@@ -21,30 +23,25 @@ public class Voto {
     private Long id;
 
     @Column(name = "cui_votante")
-    private String cuiVotante;
+    private String cui_votante;
 
-    @ManyToOne
-    @JoinColumn(name = "presidente_id")
-    private Candidato presidente;
+    @Column(name = "presidente_id")
+    private Integer presidente_id;
 
-    @ManyToOne
-    @JoinColumn(name = "alcalde_id")
-    private Candidato alcalde;
+    @Column(name = "alcalde_id")
+    private Integer alcalde_id;
 
-    @ManyToOne
-    @JoinColumn(name = "diputado_lista_id")
-    private Candidato diputadoLista;
+    @Column(name = "diputado_lista_id")
+    private Integer diputado_lista_id;
 
-    @ManyToOne
-    @JoinColumn(name = "diputado_distrito_id")
-    private Candidato diputadoDistrito;
+    @Column(name = "diputado_distrito_id")
+    private Integer diputado_distrito_id;
 
-    @ManyToOne
-    @JoinColumn(name = "parlacen_id")
-    private Candidato parlacen;
+    @Column(name = "parlacen_id")
+    private Integer parlacen_id;
 
-    @Column(name = "fecha_voto", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private Timestamp fechaVoto;
+    @Column(name = "fecha_voto", insertable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Date fecha_voto;
 
 }
 
