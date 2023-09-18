@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import {FormBuilder, Validators, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { Router } from '@angular/router';
 import { AlmacenamientoTempService } from 'src/app/services/almacenamiento-temp.service';
+import { AuthService } from 'src/app/services/auth.service';
 import { CandidatosService } from 'src/app/services/candidatos.service';
 import { VotacionesService } from 'src/app/services/votaciones.service';
 import Swal from 'sweetalert2';
@@ -14,7 +16,7 @@ export class TableroVotacionesComponent {
   @Output() candidatoSeleccionado = new EventEmitter();
 
   constructor(private _formBuilder: FormBuilder, private candidatosService: CandidatosService, private tempService: AlmacenamientoTempService,
-              private votacionService: VotacionesService) {}
+              private votacionService: VotacionesService, private sesionService: AuthService, private router: Router) {}
 
   get presidentes () {
     return this.tempService.presidentes;
@@ -115,6 +117,8 @@ export class TableroVotacionesComponent {
     this.getDiputadosDistrito();
     this.getDiputadosParlacen();
   }
+
+
 
   guardarVotacion(){
     this.tempService.getUltimosCandidatosSeleccionados();

@@ -22,7 +22,7 @@ public class Catalogo {
     @Column(name = "descripcion_catalogo", nullable = false, columnDefinition = "varchar(255) default 'NA'")
     private String descripcionCatalogo;
 
-    @Column(name = "fecha_creacion", nullable = false)
+    @Column(name = "fecha_creacion", updatable = false,insertable = false, columnDefinition = "CURRENT_TIMESTAMP Default CURRENT_TIMESTAMP")
     private Timestamp fechaCreacion;
 
     @Column(name = "tipo_catalogo", nullable = false)

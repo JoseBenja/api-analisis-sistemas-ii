@@ -17,6 +17,4 @@ export class CandidatosService {
     ///por-tipo/PRESIDENTE
   }
 
-
-
 }

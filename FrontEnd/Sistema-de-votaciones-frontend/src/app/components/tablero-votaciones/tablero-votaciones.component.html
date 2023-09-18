@@ -1,105 +1,123 @@
-<mat-stepper linear #stepper>
-  <mat-step >
+<app-toolbar></app-toolbar>
 
-      <ng-template matStepLabel>Presidenciables</ng-template>
+<div class="container-fluid scrollable-div" >
+  <div class="row justify-content-center">
+    <mat-card style="width: 90%;">
+      <mat-stepper linear #stepper>
+        <mat-step >
 
-      <div class="candidatos--grid">
-        <div *ngFor="let candidato of presidentes; let i = index"  class="candidato-item "
-        (click)="seleccionarCandidato(i)"
-        [class.selected]="candidato.seleccionado">
+          <ng-template matStepLabel>Presidenciables</ng-template>
 
-        <app-presidenciable [candidato]="candidato"></app-presidenciable>
+          <div class="candidatos--grid">
+            <div *ngFor="let candidato of presidentes; let i = index"  class="candidato-item "
+                 (click)="seleccionarCandidato(i)"
+                 [class.selected]="candidato.seleccionado">
 
-      </div>
-      </div>
+              <app-presidenciable [candidato]="candidato"></app-presidenciable>
 
-
-
-      <br>
-      <div class="step-button-container">
-        <button mat-button matStepperNext>Next</button>
-      </div>
-
-  </mat-step>
-
-  <mat-step  >
-
-      <ng-template matStepLabel>Alcaldes</ng-template>
-
-      <div class="candidatos--grid">
-        <div *ngFor="let alcalde of alcaldes; let i = index"  class="candidato-item "
-        (click)="seleccionarAlcalde(i)"
-        [class.selected]="alcalde.seleccionado">
-
-        <app-presidenciable [candidato]="alcalde"></app-presidenciable>
-
-      </div>
-      </div>
+            </div>
+          </div>
 
 
 
-      <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
-      </div>
+          <br>
+          <div class="step-button-container">
+            <button mat-button matStepperNext><mat-icon>arrow_forward</mat-icon>Siguiente</button>
+          </div>
 
-  </mat-step>
+        </mat-step>
 
-  <mat-step  >
+        <mat-step  >
 
-    <ng-template matStepLabel>Diputados Lista Nacional</ng-template>
-    <div class="candidatos--grid">
-      <div *ngFor="let candidato of diputadosNacional; let i = index"  class="candidato-item "
-      (click)="seleccionarDiputadoNacional(i)"
-      [class.selected]="candidato.seleccionado">
+          <ng-template matStepLabel>Alcaldes</ng-template>
 
-      <app-presidenciable [candidato]="candidato"></app-presidenciable>
+          <div class="candidatos--grid">
+            <div *ngFor="let alcalde of alcaldes; let i = index"  class="candidato-item "
+                 (click)="seleccionarAlcalde(i)"
+                 [class.selected]="alcalde.seleccionado">
 
-    </div>
-    </div>
+              <app-presidenciable [candidato]="alcalde"></app-presidenciable>
 
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button matStepperNext>Next</button>
-    </div>
+            </div>
+          </div>
 
-</mat-step>
 
-<mat-step  >
 
-  <ng-template matStepLabel>Diputados Distrito Electoral</ng-template>
+          <div>
+            <button mat-button matStepperPrevious><mat-icon>arrow_back</mat-icon>Regresar</button>
+            <button mat-button matStepperNext><mat-icon>arrow_forward</mat-icon>Siguiente</button>
+          </div>
 
-  <div class="candidatos--grid">
-    <div *ngFor="let candidato of diputadoDistrito; let i = index"  class="candidato-item "
-    (click)="seleccionarDiputadoDistrito(i)"
-    [class.selected]="candidato.seleccionado">
+        </mat-step>
 
-    <app-presidenciable [candidato]="candidato"></app-presidenciable>
+        <mat-step  >
 
+          <ng-template matStepLabel>Diputados Lista Nacional</ng-template>
+          <div class="candidatos--grid">
+            <div *ngFor="let candidato of diputadosNacional; let i = index"  class="candidato-item "
+                 (click)="seleccionarDiputadoNacional(i)"
+                 [class.selected]="candidato.seleccionado">
+
+              <app-presidenciable [candidato]="candidato"></app-presidenciable>
+
+            </div>
+          </div>
+
+          <div>
+            <button mat-button matStepperPrevious>
+              <mat-icon>arrow_back</mat-icon>
+              Regresar</button>
+            <button mat-button matStepperNext><mat-icon>arrow_forward</mat-icon>Siguiente</button>
+          </div>
+
+        </mat-step>
+
+        <mat-step  >
+
+          <ng-template matStepLabel>Diputados Distrito Electoral</ng-template>
+
+          <div class="candidatos--grid">
+            <div *ngFor="let candidato of diputadoDistrito; let i = index"  class="candidato-item "
+                 (click)="seleccionarDiputadoDistrito(i)"
+                 [class.selected]="candidato.seleccionado">
+
+              <app-presidenciable [candidato]="candidato"></app-presidenciable>
+
+            </div>
+          </div>
+
+          <div>
+            <button mat-button matStepperPrevious><mat-icon>arrow_back</mat-icon>Regresar</button>
+            <button mat-button matStepperNext><mat-icon>arrow_forward</mat-icon>Siguiente</button>
+          </div>
+
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Diputados al Parlacen</ng-template>
+          <div class="candidatos--grid">
+            <div *ngFor="let candidato of diputadoParlacen; let i = index"  class="candidato-item "
+                 (click)="seleccionarDiputadoParlacen(i)"
+                 [class.selected]="candidato.seleccionado">
+
+              <app-presidenciable [candidato]="candidato"></app-presidenciable>
+
+            </div>
+          </div>
+          <div>
+            <button mat-button matStepperPrevious>
+              <mat-icon>arrow_back</mat-icon>
+
+
+
+              Regresar</button>
+            <button mat-raised-button (click)="guardarVotacion()">Realizar Votacion</button>
+            <!--<button mat-button (click)="stepper.reset()">Reset</button>-->
+          </div>
+        </mat-step>
+      </mat-stepper>
+    </mat-card>
   </div>
-  </div>
 
-  <div>
-    <button mat-button matStepperPrevious>Back</button>
-    <button mat-button matStepperNext>Next</button>
-  </div>
+</div>
 
-</mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Diputados al Parlacen</ng-template>
-    <div class="candidatos--grid">
-      <div *ngFor="let candidato of diputadoParlacen; let i = index"  class="candidato-item "
-      (click)="seleccionarDiputadoParlacen(i)"
-      [class.selected]="candidato.seleccionado">
 
-      <app-presidenciable [candidato]="candidato"></app-presidenciable>
-
-    </div>
-    </div>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-raised-button (click)="guardarVotacion()">Guardar</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
-  </mat-step>
-</mat-stepper>

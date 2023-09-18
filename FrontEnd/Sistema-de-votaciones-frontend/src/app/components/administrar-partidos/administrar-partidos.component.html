@@ -1,0 +1,50 @@
+<app-toolbar></app-toolbar>
+<br>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <mat-card style="width: 1000px; height: 800px ">
+      <div class="row justify-content-center">
+        <div class="col">
+
+        </div>
+        <div class="col">
+          <button mat-raised-button color="primary" (click)="addPartido()">Agregar Partido Político</button>
+        </div>
+
+        <div class="col">
+
+        </div>
+
+
+      </div>
+
+      <br>
+      <div class="row justify-content-center">
+        <div style="max-height: 500px; overflow-y: auto;">
+      <table class="table table-partidos">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Fecha Creacion</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let partido of listPartidos">
+            <th scope="row">{{ partido.nombreCatalogo }}</th>
+            <td>{{ partido.descripcionCatalogo }}</td>
+            <td>{{ partido.fechaCreacion | date }}</td>
+            <td>
+              <button mat-raised-button color="warn">Eliminar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      </div>
+    </mat-card>
+
+</div>
+</div>
+

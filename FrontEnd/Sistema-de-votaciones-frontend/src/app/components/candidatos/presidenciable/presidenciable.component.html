@@ -1,8 +1,13 @@
-<div class="img-detail">
-  <app-img [img]="candidato.imagen_url"></app-img>
-  <p>{{candidato.nombre_pres}}</p>
-  <p>{{candidato.nombre_vice}}</p>
-  <p>{{candidato.partido_politico}}</p>
-  <p>{{candidato.tipo_candidato}}</p>
+<div class="container">
+  <br>
+  <div class="row img-detail"><app-img [img]="candidato.imagen_url"></app-img></div>
+  <br>
+  <div class="row  info">
+    <p>{{candidato.nombre_pres}}</p>
+    <p>{{candidato.nombre_vice}}</p>
+    <p>{{candidato.partido_politico}}</p>
+    <p>{{candidato.tipo_candidato}}</p>
+  </div>
+
 
 </div>

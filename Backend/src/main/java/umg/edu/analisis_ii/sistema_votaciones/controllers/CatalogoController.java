@@ -2,6 +2,7 @@ package umg.edu.analisis_ii.sistema_votaciones.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import umg.edu.analisis_ii.sistema_votaciones.models.Catalogo;
 import umg.edu.analisis_ii.sistema_votaciones.models.TipoCatalogo;
@@ -39,6 +40,7 @@ public class CatalogoController {
         return catalogoService.getCatalogoByNombre(nombre);
     }
 
+   // @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/crearTipoCatalogo")
     public ResponseEntity<TipoCatalogo> saveTipoCatalogo(@RequestBody TipoCatalogo tipoCatalogo) {
         TipoCatalogo obj = tipoCatalogoService.saveTipoCatalogo(tipoCatalogo);
@@ -48,13 +50,13 @@ public class CatalogoController {
         return ResponseEntity.ok(obj);
     }
 
+   // @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("crearCatalogo")
     public Catalogo saveCatalogo(@RequestBody Catalogo catalogo) {
         return catalogoService.saveCatalogo(catalogo);
     }
 
-
-
+    //@PreAuthorize("hasRole('ROLE_ADMIN')")
     @DeleteMapping("/{nombre}")
     public void deleteCatalogo(@PathVariable String nombre) {
         catalogoService.deleteCatalogo(nombre);

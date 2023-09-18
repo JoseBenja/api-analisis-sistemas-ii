@@ -10,11 +10,13 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 
     margin: 5px;
-    width: 400px; /* Ajusta el valor según lo que necesites */
-    height: 400px; /* Ajusta el valor según lo que necesites */
+    width: 400px;
+    height: 400px;
+    transition: background-color 0.1s;
+
   }
 
-  .candidato-item.selected{
+ .candidato-item.selected{
     background-color: #79c452;
     color: white;
 
@@ -22,8 +24,21 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   }
 
+/*button{
 
+  background-color:  #193248;
+  color: #FFFFFF;
+  border-radius: 15px;
+  height: 40px;
+  width: auto;
+  margin: 25px ;
 
+}*/
+
+.scrollable-div {
+  max-height: 900px;
+  overflow-y: scroll;
+}
 
   .step-button-container {
     position: relative;
@@ -48,7 +63,7 @@
   .candidatos--grid{
     position: relative;
     display: grid ;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid: gap 15px;
   }
 

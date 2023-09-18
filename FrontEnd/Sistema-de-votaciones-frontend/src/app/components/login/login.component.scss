@@ -1,0 +1,52 @@
+h1 {
+  color: #369;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 250%;
+  margin-top: 15px;
+  margin-left: 175px;
+}
+
+.example-card {
+  max-width: 500px;
+  height: 400px;
+  border-radius: 1.5rem;
+
+}
+
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+
+}
+
+.rowsInputs{
+  width: 450px;
+
+}
+
+::ng-deep .mat-form-field-outline-end {
+  border-radius: 0 28px 28px 0 !important;
+}
+
+.magenesRow{
+  margin-top: 50px
+}
+
+.btns{
+  margin-top: 50px;
+  border-radius: 1.5rem;
+  width: 200px;
+}
+
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
