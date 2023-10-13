@@ -50,9 +50,9 @@ public class AuthController {
                 logger.log(Level.INFO, "se ejecuta el metodo createToken despues de authenticate");
                 String jwt = jwtUtil.generateToken(userDetails);
                 String nombre = getCui(request.getUsername());
-
-
-                return new ResponseEntity<>(new AuthenticationResponse(jwt, nombre), HttpStatus.OK);
+                String rol = getRol(request.getUsername());
+                String nombreCompleto = getNombre(request.getUsername());
+                return new ResponseEntity<>(new AuthenticationResponse(jwt, nombre, rol, nombreCompleto), HttpStatus.OK);
             } catch (BadCredentialsException e) {
                 return new ResponseEntity<>(HttpStatus.FORBIDDEN);
             }
@@ -80,13 +80,16 @@ public class AuthController {
         return contraseña;
     }
 
-   /* @GetMapping("cui/{cui}")
-    public ResponseEntity<Usuario> getUsuarioByCui(@PathVariable String cui){
-        Optional<Usuario> usuario = usuarioServicio.findByCui(cui);
-        if(usuario.isPresent()){
-            return new ResponseEntity<>(usuario.get(), HttpStatus.OK);
-        }else{
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }*/
+    public String getRol(String username){
+        Optional<Usuario> usuario = usuarioServicio.findByCui(username);
+        String rol = usuario.get().getRol();
+        return rol;
+    }
+
+    public String getNombre(String username){
+        Optional<Usuario> usuario = usuarioServicio.findByCui(username);
+        String nombre = usuario.get().getNombre();
+        return nombre;
+    }
+
 }

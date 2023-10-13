@@ -14,4 +14,6 @@ password:string;
 export class token {
   jwt: string='';
   nombre: string='';
+  rol: string='';
+  nombreCompleto: string='';
 }

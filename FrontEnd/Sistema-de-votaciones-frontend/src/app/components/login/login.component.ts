@@ -45,16 +45,19 @@ export class LoginComponent implements OnInit {
     }
 
     this.sesionService.obtenerToken(sesion).subscribe(token=>{
+      this.authService.setNombre(token.nombreCompleto);
       Swal.fire({
         position: 'top-end',
         icon: 'success',
-        title: 'Bienvenido ' + this.form.get('usuario')?.value,
+        title: 'Bienvenido, ' + this.authService.getNombre(),
         showConfirmButton: false,
         timer: 1500
       })
 
       this.authService.setToken(token.jwt);
       this.authService.setUserName(token.nombre);
+      this.authService.setRol(token.rol);
+      this.authService.setNombre(token.nombreCompleto);
       this.router.navigateByUrl('inicio');
     },error => Swal.fire('ERROR', `El usuario o contraseña son incorrectos por favor intente de nuevo`, `error`))
   }

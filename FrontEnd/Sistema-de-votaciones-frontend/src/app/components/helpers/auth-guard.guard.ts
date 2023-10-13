@@ -14,8 +14,11 @@ export class AuthGuardGuard implements CanActivate {
     private router: Router
   ) { }
   canActivate(
-    route: ActivatedRouteSnapshot,
+    //route: ActivatedRouteSnapshot,
+    next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+      const expectedRole = next.data['expectedRole'];
+      console.log(expectedRole)
     if (!this.tokenService.getToken()) {
         Swal.fire({
         icon: 'error',
@@ -25,7 +28,17 @@ export class AuthGuardGuard implements CanActivate {
       this.router.navigate(['']);
       return false;
     }
+
+    if (this.tokenService.getToken() && (this.tokenService.getRol() === expectedRole[0] || this.tokenService.getRol() === expectedRole[1])) {
+      console.log('token :' + this.tokenService.getRol() )
       return true;
+    } else {
+      // Redirige a la página de inicio de sesión si el usuario no tiene acceso
+      this.router.navigate(['/unauthorized']);
+      return false;
+    }
+      //return true;
   }
+
 
 }

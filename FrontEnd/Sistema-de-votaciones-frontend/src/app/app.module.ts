@@ -25,6 +25,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import {MatSelectModule} from "@angular/material/select";
 import { AdministrarPartidosComponent } from './components/administrar-partidos/administrar-partidos.component';
 import {MatTableModule} from '@angular/material/table';
+import { NoAutorizadoComponent } from './components/no-autorizado/no-autorizado.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +36,8 @@ import {MatTableModule} from '@angular/material/table';
     LoginComponent,
     ToolbarComponent,
     DashboardComponent,
-    AdministrarPartidosComponent
+    AdministrarPartidosComponent,
+    NoAutorizadoComponent
   ],
     imports: [
         BrowserModule,

@@ -20,6 +20,8 @@ export class ToolbarComponent {
 
   toppings = new FormControl();
 
+  user = this.sesionService.getNombre();
+
   toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
 }

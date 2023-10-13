@@ -35,6 +35,7 @@ public class UsuarioDetailService implements UserDetailsService {
             logger.log(Level.WARNING, "User not found by name: " + username);
             throw new UsernameNotFoundException("User not found by name: " + username);
         }
+        logger.log(Level.INFO, "GET AUTHORITIES", user.get().getAuthorities());
         return new User(user.get().getUsername(), user.get().getPassword(), user.get().getAuthorities());
     }
 
