@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/catalogos")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class CatalogoController {
-    @Autowired
+   /* @Autowired
     private CatalogoService catalogoService;
 
     @Autowired
@@ -60,6 +60,6 @@ public class CatalogoController {
     @DeleteMapping("/{nombre}")
     public void deleteCatalogo(@PathVariable String nombre) {
         catalogoService.deleteCatalogo(nombre);
-    }
+    }*/
 }
 

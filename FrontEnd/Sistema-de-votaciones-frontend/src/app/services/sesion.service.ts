@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class SesionService {
-  private baseURL:string = 'http://localhost:8091/sistema-votaciones/auth/authenticate';
+  private baseURL:string = 'https://admon-votaciones-d67c9b4d8c9d.herokuapp.com/auth/authenticate';
   constructor(private http: HttpClient) { }
 
   obtenerToken(usuario:usuarioDTO): Observable<token> {

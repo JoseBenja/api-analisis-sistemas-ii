@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Candidato, Voto } from 'src/app/models/candidato';
+import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
 })
 export class AlmacenamientoTempService {
 
-  cui: string = '3038568150110';
+  cui: string = this.auth.getUserName();
 
   presidentes: Candidato[] = [];
 
@@ -17,7 +18,7 @@ export class AlmacenamientoTempService {
 
   diputadoParlacen: Candidato[] = [];
 
-  constructor() { }
+  constructor(private auth: AuthService) { }
 
   ultimosCandidatosSeleccionados: { [tipo: string]: Candidato } = {};
 

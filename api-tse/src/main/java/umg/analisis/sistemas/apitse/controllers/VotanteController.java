@@ -12,11 +12,12 @@ import umg.analisis.sistemas.apitse.services.VotanteSvc;
 @Api
 @RestController
 @RequestMapping("/votante")
+@CrossOrigin("*")
 public class VotanteController extends CommonController<Votante, VotanteSvc> {
 
-    @GetMapping("/empadronado/{cui}")
+    @GetMapping("/empadronado")
     @ApiOperation("Encontrar votante empradonado por el CUI")
-    public ResponseEntity<DatosVotante> findVotanteByCui(@PathVariable String cui) {
+    public ResponseEntity<DatosVotante> findVotanteByCui(@RequestParam String cui) {
         return ResponseEntity.ok(this.service.findVotanteByCui(cui));
     }
 }

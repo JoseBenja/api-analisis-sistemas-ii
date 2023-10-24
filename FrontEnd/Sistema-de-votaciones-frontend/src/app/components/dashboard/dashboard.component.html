@@ -14,7 +14,7 @@
     <br>
     <div class="row justify-content-center">
       <div class="col"> <button mat-raised-button color="primary" [disabled]="rol != 'ROLE_ADMIN'">ADMINISTRAR CARGOS</button></div>
-      <div class="col"> <button mat-raised-button color="primary" routerLink="/tablero-votacion">REALIZAR VOTACION</button></div>
+      <div class="col"> <button mat-raised-button color="primary" (click)="goToVotations()">REALIZAR VOTACION</button></div>
     </div>
   </mat-card>
   </div>

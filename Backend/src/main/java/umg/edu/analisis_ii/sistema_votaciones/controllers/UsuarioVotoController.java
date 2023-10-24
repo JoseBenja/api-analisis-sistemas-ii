@@ -16,7 +16,7 @@ import java.util.Optional;
 @CrossOrigin("*")
 public class UsuarioVotoController {
 
-    @Autowired
+  /*  @Autowired
     private UsuarioVotoService usuarioVotoService;
 
 
@@ -28,6 +28,6 @@ public class UsuarioVotoController {
     @PostMapping("/crear")
     public ResponseEntity<UsuarioVoto> crearUsuario(@RequestBody UsuarioVoto usuarioVoto){
         return ResponseEntity.ok(usuarioVotoService.save(usuarioVoto));
-    }
+    }*/
 
 }

@@ -3,10 +3,7 @@ package umg.analisis.sistemas.apirenap.controllers;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import umg.analisis.sistemas.apirenap.commons.CommonController;
 import umg.analisis.sistemas.apirenap.models.Dpi;
 import umg.analisis.sistemas.apirenap.projections.ConsultaCiudadanoProjection;
@@ -20,12 +17,12 @@ public class DpiController extends CommonController<Dpi, DpiSvc> {
     @Autowired
     DpiSvc dpiSvc;
 
-    @GetMapping("/buscar-ciudadano/{dpi}")
-    public ResponseEntity<ConsultaCiudadanoProjection> getCiudadanoPorDpi(@PathVariable String dpi) {
+    @GetMapping("/buscar-ciudadano")
+    public ResponseEntity<ConsultaCiudadanoProjection> getCiudadanoPorDpi(@RequestParam String cui) {
 
-        boolean estadoCivil = dpiSvc.validarEstadoCivil(dpi);
-        boolean segundoNombre = dpiSvc.validarSegundoNombreExist(dpi);
+        boolean estadoCivil = dpiSvc.validarEstadoCivil(cui);
+        boolean segundoNombre = dpiSvc.validarSegundoNombreExist(cui);
 
-        return ResponseEntity.ok(dpiSvc.getCiudadanoPorDpi(dpi, estadoCivil, segundoNombre));
+        return ResponseEntity.ok(dpiSvc.getCiudadanoPorDpi(cui, estadoCivil, segundoNombre));
     }
 }

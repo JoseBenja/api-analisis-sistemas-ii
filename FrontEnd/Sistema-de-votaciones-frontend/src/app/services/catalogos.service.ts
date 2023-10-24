@@ -6,7 +6,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class CatalogosService {
-  private API_URL = 'http://localhost:8091/sistema-votaciones/catalogos';
+  private API_URL = 'https://admon-votaciones-d67c9b4d8c9d.herokuapp.com/catalogos';
 
   constructor(private http: HttpClient) { }
   //

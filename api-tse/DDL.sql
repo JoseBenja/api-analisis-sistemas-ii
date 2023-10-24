@@ -10,7 +10,7 @@ CREATE TABLE tse.catalogo (
 );
 
 CREATE TABLE tse.votante (
-                             no_empadronado int4 NOT NULL DEFAULT nextval('tse.votante_no_empradonado_seq'::regclass),
+                             no_empadronado int4 GENERATED ALWAYS AS IDENTITY(1,1),
                              cui varchar(13) NOT NULL,
                              municipio int4 NOT NULL,
                              direccion varchar(100) NOT NULL,

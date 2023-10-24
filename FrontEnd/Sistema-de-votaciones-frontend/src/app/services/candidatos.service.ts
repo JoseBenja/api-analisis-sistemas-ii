@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class CandidatosService {
 
-  private API_URL = 'http://localhost:8091/sistema-votaciones/candidatos';
+  private API_URL = 'https://admon-votaciones-d67c9b4d8c9d.herokuapp.com/candidatos';
 
   constructor(private http: HttpClient) { }
 
