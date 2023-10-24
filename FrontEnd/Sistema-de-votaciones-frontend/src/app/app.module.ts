@@ -26,6 +26,7 @@ import {MatSelectModule} from "@angular/material/select";
 import { AdministrarPartidosComponent } from './components/administrar-partidos/administrar-partidos.component';
 import {MatTableModule} from '@angular/material/table';
 import { NoAutorizadoComponent } from './components/no-autorizado/no-autorizado.component';
+import { AdministrarCandidatosComponent } from './components/administrar-candidatos/administrar-candidatos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,8 @@ import { NoAutorizadoComponent } from './components/no-autorizado/no-autorizado.
     ToolbarComponent,
     DashboardComponent,
     AdministrarPartidosComponent,
-    NoAutorizadoComponent
+    NoAutorizadoComponent,
+    AdministrarCandidatosComponent
   ],
     imports: [
         BrowserModule,
